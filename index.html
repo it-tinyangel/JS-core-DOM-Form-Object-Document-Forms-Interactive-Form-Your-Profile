@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/style.css">
+	<title>Interactive Forms</title>
+</head>
+
+<body>
+	<section>
+		<form name="profileSignUp" class="form__profile">
+			<h2 class="form__profile--title">Create Your account</h2>
+			<div class="form__profile--wrap form__profile">
+
+				<fieldset>
+					<label for="firstName" class="form__profile--label"><span>First Name</span></label>
+					<input type="text" id="firstName" name="firstName" placeholder="Enter Your First Name">
+
+					<label for="lastName" class="form__profile--label"><span>Last Name</span></label>
+					<input type="text" id="lastName" name="lastName" placeholder="Enter Your Last Name">
+
+					<label for="email" class="form__profile--label"><span>Email address</span></label>
+					<input type="email" id="email" name="email" placeholder="Enter Your email address">
+				</fieldset>
+
+				<fieldset>
+					<input type="radio" id="genderMale" name="genderMale" value="">
+					<label for="genderMale"><span>man</span></label>
+					<input type="radio" id="genderFemale" name="genderFemale" value="">
+					<label for="genderFemale"><span>woman</span></label>
+				</fieldset>
+
+				<fieldset>
+					<label for="postionChoose"><span>Position</span></label>
+					<div>
+						<select id="postionChoose" name="postionChoose">
+							<option selected><span>Choose...</span></option>
+							<option value="Frontend"><span>Frontend</span></option>
+							<option value="Backend"><span>Backend</span></option>
+							<option value="QC"><span>QC/QA</span></option>
+						</select>
+					</div>
+				</fieldset>
+
+				<fieldset>
+					<input type="checkbox" id="confirmAgree" name="confirmAgree" value="">
+					<label for="confirmAgree"><span>I agree all statements in Terms of service</span></label>
+				</fieldset>
+
+				<button type="button" name="singUp" class="singUp"><span>Sing Up</span></button>
+
+			</div>
+		</form>
+	</section>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+:root {
+	--main-width: 500px;
+	--main-font: 1em 'Roboto', sans-serif;
+	--main-color: #fff;
+	--primary-color: rgb(0, 158, 0);
+	--primary-color-hover: green;
+	--second-color: gray;
+	--input-border-color: cornflowerblue;
+	--size: .5rem;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font: var(--main-font);
+	color: #000;
+	background: var(--main-color);
+}
+
+form.form__profile {
+	margin: 1.5rem auto;
+	width: var(--main-width);
+	border-radius: var(--size);
+	border: 1px solid var(--second-color);
+}
+
+h2.form__profile--title {
+	text-align: center;
+	line-height: 2.5;
+	color: var(--main-color);
+	border-radius: var(--size) var(--size) 0 0;
+	background-color: var(--primary-color);
+}
+
+div.form__profile--wrap {
+	padding: calc(var(--size) * 3);
+}
+
+div.form__profile {
+	position: relative;
+	display: grid;
+	justify-content: center;
+	grid-gap: 20px;
+	grid-template-columns: repeat(1, 1fr);
+}
+
+input:not([type='radio'], [type='checkbox']) {
+	width: 100%;
+	padding: 10px;
+	font-family: inherit;
+	font-size: 100%;
+	appearance: none;
+	outline: none;
+	border: none;
+	border: 1px solid var(--second-color);
+	border-radius: calc(var(--size) / 2);
+	color: var(--primary-color);
+	transition: 0.2s ease;
+}
+
+input:not([type="button"]):is(:hover, :focus) {
+	border: 1.25px solid var(--input-border-color);
+	box-shadow: 0 0 3px 1px var(--input-border-color);
+}
+
+[type="button"] {
+	width: 100%;
+	margin: auto;
+	padding: calc(var(--size));
+	border: none;
+	border-radius: calc(var(--size) / 2);
+	font-family: inherit;
+	font-size: 100%;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background-color: var(--primary-color);
+	cursor: pointer;
+}
+
+[type="button"]:is(:hover, :focus) {
+	background-color: var(--primary-color-hover);
+}
