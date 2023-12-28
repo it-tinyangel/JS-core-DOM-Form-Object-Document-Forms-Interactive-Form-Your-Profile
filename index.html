@@ -4,56 +4,109 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<link rel="stylesheet" href="styles/style.css">
 	<title>Interactive Forms</title>
 </head>
 
 <body>
 	<section>
-		<form name="profileSignUp" class="form__profile">
-			<h2 class="form__profile--title">Create Your account</h2>
-			<div class="form__profile--wrap form__profile">
+		<div class="profile-sign_up__container">
+			<h2 class="profile-sign_up__title">Create Your account</h2>
+			<form name="profileSignUp" aria-label="Fill in the Form">
+				<div class="profile-sign_up__main">
 
-				<fieldset>
-					<label for="firstName" class="form__profile--label"><span>First Name</span></label>
-					<input type="text" id="firstName" name="firstName" placeholder="Enter Your First Name">
+					<fieldset>
+						<legend aria-label="Enter Your Details First Name Last Name and Email address"></legend>
 
-					<label for="lastName" class="form__profile--label"><span>Last Name</span></label>
-					<input type="text" id="lastName" name="lastName" placeholder="Enter Your Last Name">
+						<label for="firstName" aria-label="Your First Name"><span>First Name</span></label>
+						<input type="text" id="firstName" name="firstName" placeholder="Enter Your First Name">
 
-					<label for="email" class="form__profile--label"><span>Email address</span></label>
-					<input type="email" id="email" name="email" placeholder="Enter Your email address">
-				</fieldset>
+						<label for="lastName" aria-label="Your Last Name"><span>Last Name</span></label>
+						<input type="text" id="lastName" name="lastName" placeholder="Enter Your Last Name">
 
-				<fieldset>
-					<input type="radio" id="genderMale" name="genderMale" value="">
-					<label for="genderMale"><span>man</span></label>
-					<input type="radio" id="genderFemale" name="genderFemale" value="">
-					<label for="genderFemale"><span>woman</span></label>
-				</fieldset>
+						<label for="email" aria-label="Your email address"><span>Email address</span></label>
+						<input type="email" id="email" name="email" placeholder="Enter Your email address">
+					</fieldset>
 
-				<fieldset>
-					<label for="postionChoose"><span>Position</span></label>
-					<div>
-						<select id="postionChoose" name="postionChoose">
-							<option selected><span>Choose...</span></option>
-							<option value="Frontend"><span>Frontend</span></option>
-							<option value="Backend"><span>Backend</span></option>
-							<option value="QC"><span>QC/QA</span></option>
+					<fieldset>
+						<legend aria-label="Choose Your Gender"></legend>
+
+						<input type="radio" id="genderMale" name="genderMale" value="">
+						<label for="genderMale" class="gender-control" aria-label="Choose Male"><span>man</span></label>
+
+						<input type="radio" id="genderFemale" name="genderFemale" value="">
+						<label for="genderFemale" class="gender-control" aria-label="Choose Female"><span>woman</span></label>
+					</fieldset>
+
+					<fieldset>
+						<legend aria-label="Choose Your Position Front-end Back-end or QC/QA"></legend>
+
+						<label for="postionChoose"><span>Position</span></label>
+						<select id="postionChoose" name="postionChoose"
+							aria-label="Choose Your Position Front-end Back-end or QC/QA">
+							<option aria-label="Choose Position" value="Choose" selected><span>Choose...</span></option>
+							<option aria-label="Front-end" value="Front-end"><span>Front-end</span></option>
+							<option aria-label="Back-end" value="Back-end"><span>Back-end</span></option>
+							<option aria-label="QC/QA" value="QC/QA"><span>QC/QA</span></option>
 						</select>
-					</div>
-				</fieldset>
+					</fieldset>
 
-				<fieldset>
-					<input type="checkbox" id="confirmAgree" name="confirmAgree" value="">
-					<label for="confirmAgree"><span>I agree all statements in Terms of service</span></label>
-				</fieldset>
+					<fieldset>
+						<legend aria-label="Choose Your Confirm"></legend>
 
-				<button type="button" name="singUp" class="singUp"><span>Sing Up</span></button>
+						<input type="checkbox" id="confirmAgree" name="confirmAgree" value="">
+						<label for="confirmAgree" class="confirm-control"
+							aria-label="Choose I agree all statements in Terms of service">
+							<span>I agree all statements in Terms of service</span>
+						</label>
+					</fieldset>
 
-			</div>
-		</form>
+					<fieldset>
+						<legend aria-label="Go to the created profile"></legend>
+
+						<button type="button" name="singUp" aria-label="Go to the created profile" value="sing_up">
+							<span>Sing Up</span></button>
+					</fieldset>
+
+				</div>
+			</form>
+		</div>
 	</section>
+
+	<section>
+		<div class="user-profile__container hidden">
+			<div class="user-profile__header"></div>
+			<div class="user-profile__image" aria-label="User Image"></div>
+
+			<div class="user-profile__main" aria-label="User Profile">
+				<h3 id="userName" class="user-profile__main--name">User Profile</h3>
+				<p id="userEmail" class="user-profile__main--email">email@example.com</p>
+				<p id="userPosition" class="user-profile__main--position">Position</p>
+			</div>
+
+			<hr>
+
+			<div class="user-profile__btn-sign_out">
+				<form name="profileSignOut">
+					<fieldset>
+						<legend aria-label="Go to Sign Out of Your profile"></legend>
+						<button type="button" name="singOut" aria-label="Sign Out of Your profile" value="sing_out">
+							<span>Sing Out</span></button>
+					</fieldset>
+				</form>
+			</div>
+
+			<div class="user-profile__footer" aria-label="Go visit to facebook github linkedin">
+				<a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+				<a href="https://github.com/" target="_blank"><i class="fa-brands fa-github"></i></a>
+				<a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+			</div>
+
+		</div>
+	</section>
+
+	<script src="js/script.js"></script>
 </body>
 
 </html>
