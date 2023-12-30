@@ -1,44 +1,46 @@
 :root {
 	--main-font: 1em 'Roboto', sans-serif;
 	--head-font: 1.5em 'Roboto', sans-serif;
-	--btn-font: 1.25em 'Roboto', sans-serif;
+	--btn-font: 1.2em 'Roboto', sans-serif;
+	--error-message-font: italic var(--main-font);
 
-	--size-l: 1em;
-	--size-m: .5em;
-	--size-s: .25em;
+	--size-m: 1rem;
+	--size-s: .5rem;
+	--size-xs: .25rem;
 
-	--size-mid: var(--size-l);
-	--size-base: var(--size-m);
-	--size-less: var(--size-s);
-	--size-border-radius: var(--size-s);
+	--extra-large-spacing: calc(var(--size-m) * 2);
+	--large-spacing: calc(var(--size-m) + var(--size-s));
+	--base-spacing: var(--size-m);
+	--small-spacing: var(--size-s);
+	--extra-small-spacing: var(--size-xs);
+	--border-radius: var(--size-xs);
 
-	--form-width: 560px;
-	--form-header-height: 60px;
-	--profile-width: 500px;
-	--profile-header-height: 100px;
-	--profile-footer-height: 50px;
+	--form-width: 35rem;
+	--header-form-height: 4rem;
+	--profile-width: 30rem;
+	--header-profile-height: 7rem;
+	--footer-profile-height: 3rem;
 
-	--main-color: #fff;
-	--primary-color: dimgray;
-	--secondary-color: lightsteelblue;
-	--checked-color: cornflowerblue;
-	--heading-color: rgb(0, 158, 0);
-	--heading-color-hover: green;
+	--main-light-color: #fff;
+	--main-dark-color: dimgray;
+	--primary-accent-color: lightsteelblue;
+	--primary-checked-color: cornflowerblue;
+	--primary-head-color: rgb(0, 158, 0);
+	--primary-head-color-hover: green;
+	--danger-red-color: red;
 
-	--btn-color: var(--heading-color);
-	--btn-color-hover: var(--heading-color-hover);
+	--btn-color: var(--primary-head-color);
+	--btn-color-hover: var(--primary-head-color-hover);
 
+	--input-border-color: var(--main-dark-color);
+	--input-border-color-hover: var(--primary-accent-color);
 	--input-background-color: transparent;
-	--input-border-color: var(--primary-color);
-	--input-border-color-hover: var(--secondary-color);
 
 	--radio-border-color: var(--input-border-color);
-	--radio-border-color-hover: var(--input-border-color-hover);
-	--radio-checked-color: var(--checked-color);
+	--radio-color-checked: var(--primary-checked-color);
 
-	--checkbox-border-color: var(--primary-color);
-	--checkbox-hover-color: var(--input-border-color-hover);
-	--checkbox-checked-color: var(--checked-color);
+	--checkbox-border-color: var(--main-dark-color);
+	--checkbox-color-checked: var(--primary-checked-color);
 }
 
 * {
@@ -50,71 +52,99 @@
 
 body {
 	font: var(--main-font);
-	color: var(--primary-color);
-	background: var(--main-color);
+	color: var(--main-dark-color);
+	background: var(--main-light-color);
 }
 
-div.profile-sign_up__container {
-	margin: 1.5rem auto;
+div.signup-container {
+	margin: var(--base-spacing) auto 0;
 	width: var(--form-width);
-	border-radius: calc(var(--size-border-radius) * 1.75);
-	border: 1px solid var(--primary-color);
+	border-radius: calc(var(--border-radius) * 1.3);
+	border: 1px solid var(--main-dark-color);
 }
 
-h2.profile-sign_up__title {
+h2.signup-title {
 	width: 100%;
-	height: var(--form-header-height);
+	height: var(--header-form-height);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font: var(--head-font);
-	color: var(--main-color);
-	border-radius: var(--size-border-radius) var(--size-border-radius) 0 0;
-	background-color: var(--heading-color);
+	color: var(--main-light-color);
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
+	background-color: var(--primary-head-color);
 }
 
-div.profile-sign_up__main {
-	padding: 1.5rem;
+div.signup-main {
+	margin: var(--extra-large-spacing);
 	display: grid;
 	grid-gap: 10px;
 }
 
-fieldset:nth-of-type(1),
-fieldset:nth-of-type(3),
-fieldset:nth-of-type(5) {
-	display: contents;
-}
-
-label,
-button[type="button"],
-fieldset:nth-of-type(2),
-fieldset:nth-of-type(4) {
-	margin: var(--size-mid) 0 0 0;
-}
-
-legend {
+.hidden,
+.visually-hidden {
 	display: none;
 }
 
-select,
-input:not([type='radio'], [type='checkbox']) {
+.signup-fieldset {
+	display: contents;
+}
+
+.gender-group {
+	display: flex;
+	gap: 10px;
+}
+
+.gender-label,
+.confirm-label {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.gender-control,
+.confirm-control {
+	margin-right: 15px;
+	user-select: none;
+	cursor: pointer;
+}
+
+.error-message {
+	margin: 0 0 0 115px;
+	position: absolute;
+	font: var(--error-message-font);
+	color: var(--danger-red-color);
+}
+
+label:not([for="firstName"]),
+button[name="signUp"] {
+	margin: var(--base-spacing) 0 0 0;
+}
+
+:is(select#postionChoose, input:not([type='radio'], [type='checkbox'])) {
 	width: 100%;
-	padding: var(--size-base);
+	padding: var(--small-spacing);
 	appearance: none;
 	outline: none;
 	border: none;
 	border: 1px solid var(--input-border-color);
-	border-radius: var(--size-border-radius);
+	border-radius: var(--border-radius);
 	font-family: inherit;
 	font-size: 100%;
-	color: var(--primary-color);
+	color: var(--main-dark-color);
 	background-color: var(--input-background-color);
 }
 
-input:not([type="button"]):is(:hover, :focus) {
+:is(select#postionChoose, input:not([type='radio'], [type='checkbox'], [type="button"])):is(:hover, :focus) {
 	border: 1px solid var(--input-border-color-hover);
 	box-shadow: 0 0 3px 1px var(--input-border-color-hover);
 	transition: all 0.2s ease;
+}
+
+select#postionChoose {
+	background: right center / 5% 50% no-repeat;
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512" fill="dimgray"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z"/></svg>');
+	cursor: pointer;
 }
 
 input:is([type='radio'], [type='checkbox']) {
@@ -129,112 +159,98 @@ input:is([type='radio'], [type='checkbox']) {
 input[type="radio"] {
 	border-radius: 50%;
 	border: 1px solid var(--radio-border-color);
-
 }
 
 input[type="radio"]:checked {
-	border-color: var(--checked-color);
-	background-color: var(--checked-color);
-	background-clip: content-box;
-	padding: 2px;
-	background-image: radial-gradient(circle,
-			var(--checked-color) 0%,
-			var(--checked-color) 50%,
-			transparent 60%,
-			transparent 100%);
+	border-color: var(--radio-color-checked);
+	background: center / 17px no-repeat;
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512" fill="cornflowerblue"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm80 248c0 44.1-35.9 80-80 80s-80-35.9-80-80 35.9-80 80-80 80 35.9 80 80z"/></svg>');
 	transition: all 0.2s ease;
 }
 
 input[type="checkbox"] {
-	border-radius: var(--size-border-radius);
+	border-radius: var(--border-radius);
 	border: 1px solid var(--checkbox-border-color);
 }
 
 input[type="checkbox"]:checked {
-	border-color: var(--checkbox-checked-color);
-	background: center / 12px no-repeat;
-	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 32 32" xml:space="preserve"><path style="fill: cornflowerblue" d="M11.941,28.877l-11.941-11.942l5.695-5.696l6.246,6.246l14.364-14.364L32,8.818"/></svg>');
-	transition: all 0.2s ease;
+	border-color: var(--checkbox-color-checked);
+	background: center / 17px no-repeat;
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512" fill="cornflowerblue"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm-204.7-98.1l184-184c6.2-6.2 6.2-16.4 0-22.6l-22.6-22.6c-6.2-6.2-16.4-6.2-22.6 0L184 302.7l-70.1-70.1c-6.2-6.2-16.4-6.2-22.6 0l-22.6 22.6c-6.2 6.2-6.2 16.4 0 22.6l104 104c6.2 6.3 16.4 6.3 22.6 0z"/></svg>');
 }
 
-button[name="singUp"] {
-	padding: var(--size-base);
+button[name="signUp"] {
+	padding: var(--small-spacing);
 	font: var(--btn-font);
 	border: none;
-	border-radius: var(--size-border-radius);
-	color: var(--main-color);
+	border-radius: var(--border-radius);
+	color: var(--main-light-color);
 	background-color: var(--btn-color);
 	cursor: pointer;
 }
 
-button[name="singUp"]:is(:hover, :focus) {
+button[name="signUp"]:is(:hover, :focus) {
 	background-color: var(--btn-color-hover);
 	transition: all 0.2s ease;
 }
 
-label.gender-control {
-	padding: 0 var(--size-mid) 0 0;
-	user-select: none;
-}
+/* Profile styles */
 
-.gender-control>span,
-.confirm-control>span {
-	padding: 0 0 0 var(--size-less);
-}
-
-div.user-profile__container {
-	margin: 1.5rem auto;
+div.user-profile-container {
+	margin: var(--base-spacing) auto 0;
 	width: var(--profile-width);
 	position: relative;
-	border-radius: calc(var(--size-border-radius) * 1.75);
-	border: 1px solid var(--primary-color);
+	border-radius: calc(var(--border-radius) * 1.3);
+	border: 1px solid var(--main-dark-color);
 }
 
-div.user-profile__header,
-div.user-profile__footer {
-	background-color: var(--heading-color);
+div.user-profile-header,
+div.user-profile-footer {
+	background-color: var(--primary-head-color);
 }
 
-div.user-profile__header {
-	height: var(--profile-header-height);
-	border-radius: var(--size-border-radius) var(--size-border-radius) 0 0;
+div.user-profile-header {
+	height: var(--header-profile-height);
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
-div.user-profile__footer {
-	height: var(--profile-footer-height);
+div.user-profile-footer {
+	margin: var(--small-spacing) 0 0 0;
+	height: var(--footer-profile-height);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 15px;
-	margin-top: 1.5rem;
-	border-radius: 0 0 var(--size-border-radius) var(--size-border-radius);
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
-div.user-profile__footer a {
+div.user-profile-footer a {
 	font-size: x-large;
-	color: var(--main-color);
+	color: var(--main-light-color);
 }
 
-div.user-profile__image {
+div.user-profile-image {
 	width: 120px;
 	height: 120px;
 	position: absolute;
-	top: 40px;
-	left: 190px;
+	top: 46px;
+	left: 180px;
 	border-radius: 50%;
-	background-color: var(--main-color);
+	background-color: var(--main-light-color);
+	background-size: cover;
+	background-position: center;
 }
 
-.user-profile__image--male {
+.user-profile-image--male {
 	background-image: url(../src/Male_User_Profile.svg);
 }
 
-.user-profile__image--female {
+.user-profile-image--female {
 	background-image: url(../src/Female_User_Profile.svg);
 }
 
-.user-profile__main {
-	margin: 5.5rem auto 1.5rem;
+.user-profile-main {
+	margin: calc(var(--extra-large-spacing) * 2) auto var(--large-spacing);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -245,31 +261,29 @@ hr {
 	bottom: none;
 	height: 0;
 	opacity: .2;
-	border-top: 1px solid var(--primary-color);
+	border-top: 1px solid var(--main-dark-color);
 }
 
-.user-profile__btn-sign_out {
-	margin-top: var(--size-less);
+.user-profile-btn-sign-out {
+	margin: var(--extra-small-spacing) 0 0 0;
+	height: var(--header-profile-height);
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 
-button[name="singOut"] {
-	padding: var(--size-base);
+button[name="signOut"] {
+	padding: var(--small-spacing) var(--base-spacing);
 	font: var(--btn-font);
 	border: 1px solid var(--btn-color);
-	border-radius: var(--size-border-radius);
+	border-radius: var(--border-radius);
 	color: var(--btn-color);
-	background-color: var(--main-color);
+	background-color: var(--main-light-color);
 	cursor: pointer;
 }
 
-button[name="singOut"]:is(:hover, :focus) {
+button[name="signOut"]:is(:hover, :focus) {
 	background-color: var(--btn-color-hover);
-	color: var(--main-color);
+	color: var(--main-light-color);
 	transition: all 0.2s ease;
-}
-
-.hidden {
-	display: none;
 }
