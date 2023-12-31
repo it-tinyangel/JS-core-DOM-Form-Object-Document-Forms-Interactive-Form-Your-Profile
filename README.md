@@ -1,5 +1,3 @@
-# JS-core-DOM-FormsEvent-Form
-
 ## Module 3. JS Core. Lesson 14. Task 2
 
 ### The Document Object Model. The HTML DOM Form Object, Document forms
