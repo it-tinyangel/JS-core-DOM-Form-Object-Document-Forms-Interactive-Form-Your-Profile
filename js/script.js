@@ -105,6 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Checking the email format when has lost focus
 	emailInput.addEventListener('blur', function () {
 		const emailValue = this.value.trim();
+
+		if (emailValue === '') {
+			return;
+		}
+
 		const isValid = isValidEmail(emailValue);
 
 		if (isValid) {
