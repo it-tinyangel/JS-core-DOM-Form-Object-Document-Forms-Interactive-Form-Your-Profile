@@ -39,6 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	function signUpFormSubmit(event) {
 		event.preventDefault();
 
+		if (elements.position.value === 'Choose') {
+			alert('Please select a valid position.');
+			return;
+		}
+
 		updateProfile();
 		form.parentElement.classList.add('hidden');
 		elements.profileSection.classList.remove('hidden');
