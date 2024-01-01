@@ -5,14 +5,14 @@
 
 ### Interactive Form
 
-This task implements a registration form that displays the information entered by the user in the created user profile:
+This task implements an interactive registration form that displays the information entered by the user in the created profile:
 
-- **Email Validation** — _**Checking the format of the entered Email**_ — displaying an error message if the Email is uncorrect.
+- **Validation the entered email ** — displays error message if the email format is incorrect, ensures that the email field is a required and correctly formatted.
 
-- **Form processing** — _**Checking all form fields when clicking the `Sign Up` button**_ — outputting relevant messages if the fields are not filled in or not selected.
+- **Form processing** — checks all form fields upon clicking the `Sign Up` button,  — displays and provides informative messages for users to complete or correct the form.
 
-- **Validation of confirm** — activation of the `Sign Up` button only upon agreement with the terms.
+- **Agreement Validation** — the "Sign Up" button only when the user agrees to the terms, which improves the security of user forms and agreements.
 
-- **Profile display management** — display of information about the user in the profile upon successful registration, possibility to exit the profile.
+- **Profile display management** — displays user information in the profile upon successful registration, allows users to exit the profile with the `Sign Out` button.
 
-- **Dynamic change of appearance** — changing the display of the profile depending on the choice of gender.
+- **Dynamic change of appearance** — changes the display of the user profile based on the selected gender.
