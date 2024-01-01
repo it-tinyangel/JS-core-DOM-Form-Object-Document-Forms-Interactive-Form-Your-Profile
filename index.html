@@ -23,18 +23,20 @@
 						<label for="firstName" aria-label="Your First Name">
 							<span>First Name</span>
 						</label>
-						<input type="text" id="firstName" name="firstName" placeholder="Enter Your First Name" autocomplete="given-name" required autofocus>
+						<input type="text" id="firstName" name="firstName" placeholder="Enter Your First Name"
+							autocomplete="given-name" required autofocus>
 
 						<label for="lastName" aria-label="Your Last Name">
 							<span>Last Name</span>
 						</label>
-						<input type="text" id="lastName" name="lastName" placeholder="Enter Your Last Name" autocomplete="family-name" required>
+						<input type="text" id="lastName" name="lastName" placeholder="Enter Your Last Name"
+							autocomplete="family-name" required>
 
 						<label for="email" aria-label="Your email address">
-							<span id="emailErrorMessage" class="error-message visually-hidden"></span>
 							<span>Email address</span>
 						</label>
-						<input type="email" id="email" name="email" placeholder="Enter Your email address" autocomplete="email" required>
+						<input type="email" id="email" name="email" placeholder="Enter Your email address" autocomplete="email"
+							required>
 					</fieldset>
 
 					<fieldset class="signup-fieldset">
@@ -59,8 +61,8 @@
 						<legend class="visually-hidden" aria-label="Choose Your Position Front-end Back-end or QC/QA"></legend>
 
 						<label for="postionChoose"><span>Position</span></label>
-						<select id="postionChoose" name="postionChoose">
-							<option value="Choose" selected><span>Choose... </span></option>
+						<select id="postionChoose" name="postionChoose" required>
+							<option value="Choose"><span>Choose... </span></option>
 							<option value="Front-end"><span>Front-end</span></option>
 							<option value="Back-end"><span>Back-end</span></option>
 							<option value="QC/QA"><span>QC/QA</span></option>
