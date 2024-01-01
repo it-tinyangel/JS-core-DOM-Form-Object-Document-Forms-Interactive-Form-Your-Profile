@@ -39,17 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
 	function signUpFormSubmit(event) {
 		event.preventDefault();
 
+		updateProfile();
 		form.parentElement.classList.add('hidden');
 		elements.profileSection.classList.remove('hidden');
-
-		updateProfile();
 	}
 
 	function signOut() {
 		const isFormHidden = form.parentElement.classList.contains('hidden');
 
-		if (!isFormHidden) {
-			form.parentElement.classList.add('hidden');
+		if (isFormHidden) {
+			form.parentElement.classList.remove('hidden');
 			elements.profileSection.classList.add('hidden');
 			form.reset();
 		}
