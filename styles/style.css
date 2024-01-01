@@ -117,7 +117,7 @@ div.signup-main {
 }
 
 label:not([for="firstName"]),
-button[name="signUp"] {
+button[type="submit"] {
 	margin: var(--base-spacing) 0 0 0;
 }
 
@@ -135,7 +135,7 @@ button[name="signUp"] {
 	background-color: var(--input-background-color);
 }
 
-:is(select#postionChoose, input:not([type='radio'], [type='checkbox'], [type="button"])):is(:hover, :focus) {
+:is(select#postionChoose, input:not([type='radio'], [type='checkbox'], [type="submit"])):is(:hover, :focus) {
 	border: 1px solid var(--input-border-color-hover);
 	box-shadow: 0 0 3px 1px var(--input-border-color-hover);
 	transition: all 0.2s ease;
@@ -179,7 +179,7 @@ input[type="checkbox"]:checked {
 	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512" fill="cornflowerblue"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm-204.7-98.1l184-184c6.2-6.2 6.2-16.4 0-22.6l-22.6-22.6c-6.2-6.2-16.4-6.2-22.6 0L184 302.7l-70.1-70.1c-6.2-6.2-16.4-6.2-22.6 0l-22.6 22.6c-6.2 6.2-6.2 16.4 0 22.6l104 104c6.2 6.3 16.4 6.3 22.6 0z"/></svg>');
 }
 
-button[name="signUp"] {
+button[type="submit"] {
 	padding: var(--small-spacing);
 	font: var(--btn-font);
 	border: none;
@@ -189,7 +189,7 @@ button[name="signUp"] {
 	cursor: pointer;
 }
 
-button[name="signUp"]:is(:hover, :focus) {
+button[type="submit"]:is(:hover, :focus) {
 	background-color: var(--btn-color-hover);
 	transition: all 0.2s ease;
 }
@@ -272,7 +272,7 @@ hr {
 	align-items: center;
 }
 
-button[name="signOut"] {
+button[type="button"] {
 	padding: var(--small-spacing) var(--base-spacing);
 	font: var(--btn-font);
 	border: 1px solid var(--btn-color);
@@ -282,7 +282,7 @@ button[name="signOut"] {
 	cursor: pointer;
 }
 
-button[name="signOut"]:is(:hover, :focus) {
+button[type="button"]:is(:hover, :focus) {
 	background-color: var(--btn-color-hover);
 	color: var(--main-light-color);
 	transition: all 0.2s ease;
