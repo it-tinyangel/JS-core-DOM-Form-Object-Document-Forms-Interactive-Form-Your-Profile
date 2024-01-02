@@ -20,23 +20,23 @@
 						<legend class="visually-hidden" aria-label="Enter Your Details First Name Last Name and Email address">
 						</legend>
 
-						<label for="firstName" aria-label="Your First Name">
+						<label for="firstName" id="firstNameLabel" aria-label="Your First Name">
 							<span>First Name</span>
 						</label>
-						<input type="text" id="firstName" name="firstName" placeholder="Enter Your First Name"
-							autocomplete="given-name" required autofocus>
+						<input type="text" id="firstName" name="firstName" aria-labelledby="firstNameLabel"
+							placeholder="Enter Your First Name" autocomplete="given-name" required autofocus>
 
-						<label for="lastName" aria-label="Your Last Name">
+						<label for="lastName" id="lastNameLabel" aria-label="Your Last Name">
 							<span>Last Name</span>
 						</label>
-						<input type="text" id="lastName" name="lastName" placeholder="Enter Your Last Name"
-							autocomplete="family-name" required>
+						<input type="text" id="lastName" name="lastName" aria-labelledby="lastNameLabel"
+							placeholder="Enter Your Last Name" autocomplete="family-name" required>
 
-						<label for="email" aria-label="Your email address">
+						<label for="email" id="emailLabel" aria-label="Your email address">
 							<span>Email address</span>
 						</label>
-						<input type="email" id="email" name="email" placeholder="Enter Your email address" autocomplete="email"
-							required>
+						<input type="email" id="email" name="email" aria-labelledby="emailLabel"
+							placeholder="Enter Your email address" autocomplete="email" required>
 					</fieldset>
 
 					<fieldset class="signup-fieldset">
@@ -44,15 +44,17 @@
 
 						<div class="gender-group">
 							<label for="genderMale" class="gender-label">
-								<input type="radio" id="genderMale" name="gender" value="Male" required>
+								<input type="radio" id="genderMale" name="gender" aria-labelledby="genderMaleLabel" value="Male"
+									required>
 								<span class="gender-control" aria-hidden="true">man</span>
-								<span class="visually-hidden" aria-label="Choose Male">Choose Male</span>
+								<span id="genderMaleLabel" class="visually-hidden" aria-label="Choose Male">Choose Male</span>
 							</label>
 
 							<label for="genderFemale" class="gender-label">
-								<input type="radio" id="genderFemale" name="gender" value="Female" required>
+								<input type="radio" id="genderFemale" name="gender" aria-labelledby="genderFemaleLabel" value="Female"
+									required>
 								<span class="gender-control" aria-hidden="true">woman</span>
-								<span class="visually-hidden" aria-label="Choose Female">Choose Female</span>
+								<span id="genderFemaleLabel" class="visually-hidden" aria-label="Choose Female">Choose Female</span>
 							</label>
 						</div>
 					</fieldset>
@@ -61,7 +63,7 @@
 						<legend class="visually-hidden" aria-label="Choose Your Position Front-end Back-end or QC/QA"></legend>
 
 						<label for="postionChoose"><span>Position</span></label>
-						<select id="postionChoose" name="postionChoose" required>
+						<select id="postionChoose" name="postionChoose" aria-labelledby="positionLabel" required>
 							<option value="Choose"><span>Choose... </span></option>
 							<option value="Front-end"><span>Front-end</span></option>
 							<option value="Back-end"><span>Back-end</span></option>
@@ -73,17 +75,20 @@
 						<legend class="visually-hidden" aria-label="Choose Your Confirm"></legend>
 
 						<label for="confirmAgree" class="confirm-label">
-							<input type="checkbox" id="confirmAgree" name="confirmAgree" value="agree" required>
-							<span class="confirm-control" aria-hidden="true">I agree all statements in Terms of service</span>
-							<span class="visually-hidden" aria-label="Choose Your Confirm">Choose Your Confirm</span>
+							<input type="checkbox" id="confirmAgree" name="confirmAgree" aria-labelledby="confirmAgreeLabel"
+								value="agree" required>
+							<span id="confirmAgreeLabel" class="confirm-control" aria-hidden="true">I agree all statements in Terms of
+								service</span>
+							<span class="visually-hidden" aria-label="Choose Your Confirm">Agree to the terms</span>
 						</label>
 					</fieldset>
 
 					<fieldset class="signup-fieldset">
 						<legend class="visually-hidden" aria-label="Go to the created profile"></legend>
 
-						<button type="submit" id="signUpBtn" name="signUp" aria-label="Go to the created profile" value="sign_up">
-							<span>Sign Up</span>
+						<button type="submit" id="signUpBtn" name="signUp" aria-label="Go to the created profile"
+							aria-labelledby="signUpBtnLabel" value="sign_up">
+							<span id="signUpBtnLabel">Sign Up</span>
 						</button>
 					</fieldset>
 
@@ -95,7 +100,7 @@
 	<section class="user-profile-section hidden">
 		<div class="user-profile-container">
 			<div class="user-profile-header"></div>
-			<div class="user-profile-image" aria-label="User Image"></div>
+			<div class="user-profile-image" aria-label="User Image" aria-hidden="true"></div>
 
 			<div class="user-profile-main" aria-label="User Profile">
 				<h3 id="userName">User Profile</h3>
@@ -106,16 +111,18 @@
 			<hr>
 
 			<div class="user-profile-btn-sign-out">
-				<button type="button" id="signOutBtn" name="signOut" aria-label="Sign Out of Your profile" value="sign_out">
-					<span>Sign Out</span>
+				<button type="button" id="signOutBtn" name="signOut" aria-label="Sign Out of Your profile"
+					aria-labelledby="signOutBtnLabel" value="sign_out">
+					<span id="signOutBtnLabel">Sign Out</span>
 				</button>
 			</div>
+		</div>
 
-			<div class="user-profile-footer" aria-label="Go visit to facebook github linkedin">
-				<a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-				<a href="https://github.com/" target="_blank"><i class="fa-brands fa-github"></i></a>
-				<a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-			</div>
+		<div class="user-profile-footer" aria-label="Go visit to facebook github linkedin">
+			<a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+			<a href="https://github.com/" target="_blank"><i class="fa-brands fa-github"></i></a>
+			<a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+		</div>
 		</div>
 	</section>
 
