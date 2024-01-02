@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		event.preventDefault();
 
 		if (elements.position.value === 'Choose') {
-			alert('Please, choose position.');
+			alert('Please, choose one of the proposed options position.');
 			return;
 		}
 
