@@ -14,56 +14,70 @@ document.addEventListener('DOMContentLoaded', () => {
 		signOutButton: document.getElementById('signOutBtn'),
 	};
 
+	const { signUpButton, signOutButton } = elements;
+
 	function updateProfile() {
-		const userName = `${elements.firstName.value} ${elements.lastName.value}`;
-		const userEmail = elements.email.value;
-		const userPosition = elements.position.value;
+		const { firstName, lastName, email, position, profileImage } = elements;
+		const userName = `${firstName.value} ${lastName.value}`;
+		const userEmail = email.value;
+		const userPosition = position.value;
 		const gender = form.querySelector('input[name="gender"]:checked').value;
 
 		document.getElementById('userName').textContent = userName;
 		document.getElementById('userEmail').textContent = userEmail;
 		document.getElementById('userPosition').textContent = userPosition;
 
-		elements.profileImage.classList.toggle('user-profile-image--male', gender === 'Male');
-		elements.profileImage.classList.toggle('user-profile-image--female', gender === 'Female');
+		profileImage.classList.toggle('user-profile-image--male', gender === 'Male');
+		profileImage.classList.toggle('user-profile-image--female', gender === 'Female');
 
-		elements.profileImage.alt = gender === 'Male'
+		profileImage.alt = gender === 'Male'
 			? 'The man in the picture'
 			: 'The woman in the picture';
 
-		elements.profileImage.setAttribute('aria-label', gender === 'Male'
+		profileImage.setAttribute('aria-label', gender === 'Male'
 			? 'The man in the picture'
 			: 'The woman in the picture');
 	}
 
 	function signUpFormSubmit(event) {
+		const { position, profileSection } = elements;
 		event.preventDefault();
 
-		if (elements.position.value === 'Choose') {
+		if (position.value === 'Choose') {
 			alert('Please, choose one of the proposed options position.');
 			return;
 		}
 
 		updateProfile();
 		form.parentElement.classList.add('hidden');
-		elements.profileSection.classList.remove('hidden');
+		profileSection.classList.remove('hidden');
 	}
 
 	function signOut() {
+		const { profileSection } = elements;
 		const isFormHidden = form.parentElement.classList.contains('hidden');
 
 		if (isFormHidden) {
 			form.parentElement.classList.remove('hidden');
-			elements.profileSection.classList.add('hidden');
+			profileSection.classList.add('hidden');
 			form.reset();
 		}
 	}
 
-	function handleAgreeCheckboxChange() {
-		elements.signUpButton.disabled = !elements.agreeCheckbox.checked;
-	}
+	signUpButton.addEventListener('click', (event) => {
+		if (!elements.agreeCheckbox.checked) {
+			alert('Please, fill in the form and agree to the terms and conditions.');
+			event.preventDefault();
+		} else {
+			signUpFormSubmit();
+		}
+	});
+
+	// function handleAgreeCheckboxChange() {
+	// 	elements.signUpButton.disabled = !elements.agreeCheckbox.checked;
+	// }
 
 	form.addEventListener('submit', signUpFormSubmit);
-	elements.agreeCheckbox.addEventListener('change', handleAgreeCheckboxChange);
-	elements.signOutButton.addEventListener('click', signOut);
+	// elements.agreeCheckbox.addEventListener('change', handleAgreeCheckboxChange);
+	signOutButton.addEventListener('click', signOut);
 });
