@@ -54,6 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		emailErrorMessage.style.display = 'none';
 	}
 
+	function clearForm() {
+		form.reset();
+		hideInvalidEmailMessage();
+	};
+
 	function isFieldNotEmpty(field) {
 		return field.value.trim() !== '';
 	}
@@ -113,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		updateProfile();
 		form.parentElement.classList.add('hidden');
 		profileSection.classList.remove('hidden');
-		form.reset();
+		clearForm();
 	}
 
 	function signOut() {
@@ -123,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (isFormHidden) {
 			form.parentElement.classList.remove('hidden');
 			profileSection.classList.add('hidden');
-			form.reset();
+			clearForm();
 		}
 	}
 });
