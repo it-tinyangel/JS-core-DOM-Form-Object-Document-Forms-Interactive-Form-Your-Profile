@@ -6,12 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<link rel="stylesheet" href="styles/style.css">
-	<title>Interactive Form</title>
+	<title>Registration Form</title>
 </head>
 
 <body>
 	<section>
-		<form name="signUpForm" aria-label="Fill Details in the Form">
+		<form name="signUpForm" aria-label="Fill Details in the Form" autocomplete="on">
 			<div class="signup-container">
 				<h2 class="signup-title">Create Your account</h2>
 				<div class="signup-main">
@@ -87,7 +87,7 @@
 						<legend class="visually-hidden" aria-label="Go to the created profile"></legend>
 
 						<button type="submit" id="signUpBtn" name="signUp" aria-label="Go to the created profile"
-							aria-labelledby="signUpBtnLabel" value="sign_up">
+							aria-labelledby="signUpBtnLabel" value="Sign Up" accesskey="s">
 							<span id="signUpBtnLabel">Sign Up</span>
 						</button>
 					</fieldset>
