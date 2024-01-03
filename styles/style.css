@@ -47,11 +47,13 @@
 	padding: 0;
 	margin: 0;
 	border: 0;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 
 body {
 	min-height: 100vh;
+	display: -ms-grid;
 	display: grid;
 	place-items: center;
 	font: var(--main-font);
@@ -68,9 +70,15 @@ div.signup-container {
 h2.signup-title {
 	width: 100%;
 	height: var(--header-form-height);
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	font: var(--head-font);
 	color: var(--main-light-color);
 	border-radius: var(--border-radius) var(--border-radius) 0 0;
@@ -79,6 +87,7 @@ h2.signup-title {
 
 div.signup-main {
 	margin: var(--extra-large-spacing);
+	display: -ms-grid;
 	display: grid;
 	grid-gap: 10px;
 }
@@ -93,21 +102,30 @@ div.signup-main {
 }
 
 .gender-group {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	gap: 10px;
 }
 
 .gender-label,
 .confirm-label {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	align-items: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	gap: 10px;
 }
 
 .gender-control,
 .confirm-control {
 	margin-right: 15px;
-	user-select: none;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
 	cursor: pointer;
 }
 
@@ -119,7 +137,9 @@ button[type="submit"] {
 :is(select#positionChoose, input:not([type='radio'], [type='checkbox'])) {
 	width: 100%;
 	padding: var(--small-spacing);
-	appearance: none;
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
 	outline: none;
 	border: none;
 	border: 1px solid var(--input-border-color);
@@ -132,7 +152,10 @@ button[type="submit"] {
 
 :is(select#positionChoose, input:not([type='radio'], [type='checkbox'], [type="submit"])):is(:hover, :focus) {
 	border: 1px solid var(--input-border-color-hover);
-	box-shadow: 0 0 3px 1px var(--input-border-color-hover);
+	-webkit-box-shadow: 0 0 3px 1px var(--input-border-color-hover);
+	        box-shadow: 0 0 3px 1px var(--input-border-color-hover);
+	-webkit-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 }
 
@@ -145,7 +168,9 @@ select#positionChoose {
 input:is([type='radio'], [type='checkbox']) {
 	width: 17px;
 	height: 17px;
-	appearance: none;
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
 	outline: none;
 	border: none;
 	cursor: pointer;
@@ -160,6 +185,8 @@ input[type="radio"]:checked {
 	border-color: var(--radio-color-checked);
 	background: center / 17px no-repeat;
 	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512" fill="cornflowerblue"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm80 248c0 44.1-35.9 80-80 80s-80-35.9-80-80 35.9-80 80-80 80 35.9 80 80z"/></svg>');
+	-webkit-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 }
 
@@ -186,6 +213,8 @@ button[type="submit"] {
 
 button[type="submit"]:is(:hover, :focus) {
 	background-color: var(--btn-color-hover);
+	-webkit-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 }
 
@@ -211,9 +240,15 @@ div.user-profile-header {
 div.user-profile-footer {
 	margin: var(--small-spacing) 0 0 0;
 	height: var(--footer-profile-height);
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	gap: 15px;
 	border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
@@ -245,9 +280,16 @@ div.user-profile-image {
 
 .user-profile-main {
 	margin: calc(var(--extra-large-spacing) * 2) auto var(--large-spacing);
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	gap: 10px;
 }
 
@@ -261,9 +303,15 @@ hr {
 .user-profile-btn-sign-out {
 	margin: var(--extra-small-spacing) 0 0 0;
 	height: var(--header-profile-height);
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 
 button[type="button"] {
@@ -279,5 +327,7 @@ button[type="button"] {
 button[type="button"]:is(:hover, :focus) {
 	background-color: var(--btn-color-hover);
 	color: var(--main-light-color);
+	-webkit-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 }
