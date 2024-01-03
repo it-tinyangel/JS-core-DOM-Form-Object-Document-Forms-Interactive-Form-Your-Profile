@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		firstName: form.firstName,
 		lastName: form.lastName,
 		email: form.email,
-		position: form.postionChoose,
+		position: form.positionChoose,
 		profileImage: document.querySelector('.user-profile-image'),
 		emailErrorMessage: document.getElementById('emailErrorMessage'),
 		agreeCheckbox: document.getElementById('confirmAgree'),
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		signOutButton: document.getElementById('signOutBtn'),
 	};
 
-	const { signUpButton, signOutButton } = elements;
+	const { signOutButton } = elements;
 
 	function updateProfile() {
 		const { firstName, lastName, email, position, profileImage } = elements;
@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const userEmail = email.value;
 		const userPosition = position.value;
 		const gender = form.querySelector('input[name="gender"]:checked').value;
+		const altText = `The ${gender.toLowerCase()} in the picture`;
 
 		document.getElementById('userName').textContent = userName;
 		document.getElementById('userEmail').textContent = userEmail;
@@ -30,27 +31,50 @@ document.addEventListener('DOMContentLoaded', () => {
 		profileImage.classList.toggle('user-profile-image--male', gender === 'Male');
 		profileImage.classList.toggle('user-profile-image--female', gender === 'Female');
 
-		profileImage.alt = gender === 'Male'
-			? 'The man in the picture'
-			: 'The woman in the picture';
+		profileImage.alt = altText;
+		profileImage.setAttribute('aria-label', altText);
+	}
 
-		profileImage.setAttribute('aria-label', gender === 'Male'
-			? 'The man in the picture'
-			: 'The woman in the picture');
+	function displayErrorMessage(message) {
+		alert(message);
+	}
+
+	function isFormValid() {
+		const { firstName, lastName, email, position, agreeCheckbox, signUpButton } = elements;
+		const fieldsToCheck = [firstName, lastName, email];
+		const isEmptyField = fieldsToCheck.some(field => field.value.trim() === '');
+
+		if (isEmptyField) {
+			displayErrorMessage('Please, fill in all fields of the form.');
+			return false;
+		}
+
+		if (position.value === 'Choose') {
+			displayErrorMessage('Please, choose one of the proposed options position.');
+			return false;
+		}
+
+		if (!agreeCheckbox.checked) {
+			displayErrorMessage('Please, fill in the form and agree to the terms and conditions.');
+			return false;
+		}
+
+		signUpButton.disabled = !agreeCheckbox.checked;
+		return true;
 	}
 
 	function signUpFormSubmit(event) {
-		const { position, profileSection } = elements;
+		const { profileSection } = elements;
 		event.preventDefault();
 
-		if (position.value === 'Choose') {
-			alert('Please, choose one of the proposed options position.');
+		if (!isFormValid()) {
 			return;
 		}
 
 		updateProfile();
 		form.parentElement.classList.add('hidden');
 		profileSection.classList.remove('hidden');
+		form.reset();
 	}
 
 	function signOut() {
@@ -64,20 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
-	signUpButton.addEventListener('click', (event) => {
-		if (!elements.agreeCheckbox.checked) {
-			alert('Please, fill in the form and agree to the terms and conditions.');
-			event.preventDefault();
-		} else {
-			signUpFormSubmit();
-		}
-	});
-
-	// function handleAgreeCheckboxChange() {
-	// 	elements.signUpButton.disabled = !elements.agreeCheckbox.checked;
-	// }
-
 	form.addEventListener('submit', signUpFormSubmit);
-	// elements.agreeCheckbox.addEventListener('change', handleAgreeCheckboxChange);
 	signOutButton.addEventListener('click', signOut);
 });
