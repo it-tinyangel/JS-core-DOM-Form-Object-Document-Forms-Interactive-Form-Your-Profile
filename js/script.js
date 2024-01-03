@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		signOutButton: document.getElementById('signOutBtn'),
 	};
 
-	const { signOutButton } = elements;
+	const { emailErrorMessage, email, signOutButton } = elements;
 
 	function updateProfile() {
 		const { firstName, lastName, email, position, profileImage } = elements;
@@ -39,28 +39,67 @@ document.addEventListener('DOMContentLoaded', () => {
 		alert(message);
 	}
 
+	function isValidEmail(email) {
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		return emailRegex.test(email);
+	}
+
+	function showInvalidEmailMessage() {
+		emailErrorMessage.textContent = 'Please enter a valid email address';
+		emailErrorMessage.style.display = 'block';
+	}
+
+	function hideInvalidEmailMessage() {
+		emailErrorMessage.textContent = '';
+		emailErrorMessage.style.display = 'none';
+	}
+
+	function isFieldNotEmpty(field) {
+		return field.value.trim() !== '';
+	}
+
 	function isFormValid() {
 		const { firstName, lastName, email, position, agreeCheckbox, signUpButton } = elements;
-		const fieldsToCheck = [firstName, lastName, email];
-		const isEmptyField = fieldsToCheck.some(field => field.value.trim() === '');
 
-		if (isEmptyField) {
-			displayErrorMessage('Please, fill in all fields of the form.');
+		const fieldsToCheck = [firstName, lastName, email];
+		const isAnyFieldEmpty = fieldsToCheck.some((field) => !isFieldNotEmpty(field));
+
+		const gender = form.querySelector('input[name="gender"]:checked');
+
+		if (isAnyFieldEmpty) {
+			displayErrorMessage('Please, fill out all fields of the form.');
+			return false;
+		}
+
+		if (!gender) {
+			displayErrorMessage('Please, select a gender.');
 			return false;
 		}
 
 		if (position.value === 'Choose') {
-			displayErrorMessage('Please, choose one of the proposed options position.');
+			displayErrorMessage('Please, select one of the options.');
 			return false;
 		}
 
 		if (!agreeCheckbox.checked) {
-			displayErrorMessage('Please, fill in the form and agree to the terms and conditions.');
+			displayErrorMessage('Please, check agree to the terms and conditions.');
 			return false;
 		}
 
 		signUpButton.disabled = !agreeCheckbox.checked;
 		return true;
+	}
+
+	email.addEventListener('blur', checkAndShowEmail);
+	form.addEventListener('submit', signUpFormSubmit);
+	signOutButton.addEventListener('click', signOut);
+
+	function checkAndShowEmail() {
+		const emailValue = elements.email.value.trim();
+
+		if (emailValue !== '') {
+			isValidEmail(emailValue) ? hideInvalidEmailMessage() : showInvalidEmailMessage();
+		}
 	}
 
 	function signUpFormSubmit(event) {
@@ -87,7 +126,4 @@ document.addEventListener('DOMContentLoaded', () => {
 			form.reset();
 		}
 	}
-
-	form.addEventListener('submit', signUpFormSubmit);
-	signOutButton.addEventListener('click', signOut);
 });
