@@ -92,7 +92,7 @@ div.signup-main {
 	grid-gap: 10px;
 }
 
-/* .hidden, */
+.hidden,
 .visually-hidden {
 	display: none;
 }
