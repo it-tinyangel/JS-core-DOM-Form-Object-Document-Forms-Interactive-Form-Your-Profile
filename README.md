@@ -3,7 +3,7 @@
 ### The Document Object Model. The HTML DOM Form Object, Document forms
 ***
 
-### Interactive Form
+### Registration Form
 
 This task implements an interactive registration form that displays the information entered by the user in the created profile:
 
